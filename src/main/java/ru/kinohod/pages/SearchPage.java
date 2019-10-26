@@ -38,9 +38,9 @@ public class SearchPage {
      *
      * @return the search result.
      */
-    public SearchResult getResult() {
+    public SearchResultPage getResult() {
         searchResult.waitUntil(Condition.visible, DELAY).click();
-        return new SearchResult();
+        return new SearchResultPage();
     }
 
 }

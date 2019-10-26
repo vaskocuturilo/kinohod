@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * The type Search result.
  */
-public class SearchResult {
+public class SearchResultPage {
     private static final String TEXT = "Test-drive TV";
 
     /**
@@ -21,7 +21,7 @@ public class SearchResult {
      *
      * @return the search result.
      */
-    public SearchResult assertResult() {
+    public SearchResultPage assertResult() {
 
         searchResult.shouldHave(Condition.text(TEXT));
 
