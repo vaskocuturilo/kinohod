@@ -14,10 +14,20 @@ import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 
 
+/**
+ * The type Base web.
+ */
 public class BaseWeb {
+
+    /**
+     * The constant for LOGGING.
+     */
     private static final Logger LOGGER = Logger.getLogger(BaseWeb.class.getName());
 
 
+    /**
+     * Start process.
+     */
     @BeforeTest(alwaysRun = true)
     public void startProcess() {
         Configuration.browser = "Chrome";
@@ -25,6 +35,9 @@ public class BaseWeb {
         clearBrowserCache();
     }
 
+    /**
+     * Stop process.
+     */
     @AfterTest(alwaysRun = true)
     public void stopProcess() {
         LOGGER.info("");
