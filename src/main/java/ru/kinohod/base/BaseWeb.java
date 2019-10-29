@@ -1,17 +1,13 @@
 package ru.kinohod.base;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import org.aspectj.lang.annotation.After;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 import java.util.logging.Logger;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
-import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
-import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
+import static com.codeborne.selenide.WebDriverRunner.*;
 
 
 /**
@@ -24,6 +20,14 @@ public class BaseWeb {
      */
     private static final Logger LOGGER = Logger.getLogger(BaseWeb.class.getName());
 
+    /**
+     * The default constructor.
+     */
+    public BaseWeb() {
+        super();
+        //empty
+        return;
+    }
 
     /**
      * Start process.

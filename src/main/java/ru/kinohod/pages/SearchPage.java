@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$;
 
 /**
- * The type Search page.
+ * The class Search page.
  */
 public class SearchPage {
 
@@ -18,9 +18,18 @@ public class SearchPage {
     /**
      * The Selenide elements.
      */
-    private transient SelenideElement
+    private final transient SelenideElement
             search = $("input[id='search-navbar']"),
             searchResult = $("ul[class='uk-list uk-margin-remove-bottom'] a");
+
+    /**
+     * The default constructor.
+     */
+    public SearchPage() {
+        super();
+        //empty
+        return;
+    }
 
     /**
      * Add data for search search page.
@@ -28,7 +37,7 @@ public class SearchPage {
      * @param textForSearch the text for search.
      * @return the search page.
      */
-    public SearchPage addDataForSearch(String textForSearch) {
+    public SearchPage addDataForSearch(final String textForSearch) {
         search.setValue(textForSearch).pressEnter();
         return this;
     }

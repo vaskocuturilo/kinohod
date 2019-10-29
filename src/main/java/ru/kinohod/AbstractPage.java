@@ -12,7 +12,7 @@ import static org.testng.Assert.assertEquals;
 public class AbstractPage extends BaseWeb {
 
     /**
-     * Instantiates a new Abstract page.
+     * The default constructor.
      */
     public AbstractPage() {
         super();
@@ -26,7 +26,7 @@ public class AbstractPage extends BaseWeb {
      * @param url       the url.
      * @param titlePage the title page.
      */
-    public void openPage(String url, String titlePage) {
+    public void openPage(final String url, final String titlePage) {
         Selenide.open(url);
         assertEquals(getTitlePage(), titlePage);
     }

@@ -1,6 +1,5 @@
 package ru.kinohod.pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 
 import static com.codeborne.selenide.Selenide.$$;
@@ -13,17 +12,25 @@ public class CinemaPage {
     /**
      * The ElementsCollection.
      */
-    private transient ElementsCollection collections = $$("article[class='wk-item-cinema uk-article']");
+    private final transient ElementsCollection collections = $$("article[class='wk-item-cinema uk-article']");
 
+    /**
+     * The default constructor.
+     */
+    public CinemaPage() {
+        super();
+        //empty
+        return;
+    }
 
     /**
      * Check cinemas title cinema page.
      *
-     * @param collectionsCinemas the collections cinemas
+     * @param cinemasList the collections cinemas
      * @return the cinema page
      */
-    public CinemaPage checkCinemasTitle(int collectionsCinemas) {
-        collections.shouldHaveSize(collectionsCinemas);
+    public CinemaPage checkCinemasTitle(final int cinemasList) {
+        collections.shouldHaveSize(cinemasList);
         return this;
     }
 

@@ -9,12 +9,25 @@ import static com.codeborne.selenide.Selenide.$;
  * The type Search result.
  */
 public class SearchResultPage {
+
+    /**
+     * The constant TEXT.
+     */
     private static final String TEXT = "Test-drive TV";
 
     /**
-     * The constant.
+     * The Selenide Element.
      */
-    private transient SelenideElement searchResult = $("main[class='tm-main'] h2 div");
+    private final transient SelenideElement searchResult = $("main[class='tm-main'] h2 div");
+
+    /**
+     * The default constructor.
+     */
+    public SearchResultPage() {
+        super();
+        //empty
+        return;
+    }
 
     /**
      * Assert result search result.

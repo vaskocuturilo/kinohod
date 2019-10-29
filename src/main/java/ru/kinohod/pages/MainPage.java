@@ -6,15 +6,23 @@ import com.codeborne.selenide.ElementsCollection;
 import static com.codeborne.selenide.Selenide.$$;
 
 /**
- * The type Main page.
+ * The class Main page.
  */
 public class MainPage {
 
     /**
      * The ElementsCollection.
      */
-    private transient ElementsCollection links = $$("ul[class='uk-navbar-nav'] li");
+    private final transient ElementsCollection links = $$("ul[class='uk-navbar-nav'] li");
 
+    /**
+     * The default constructor.
+     */
+    public MainPage() {
+        super();
+        //empty
+        return;
+    }
 
     /**
      * Check links main page.
@@ -22,7 +30,7 @@ public class MainPage {
      * @param sizeLinks the size links
      * @return the main page
      */
-    public MainPage checkLinks(int sizeLinks) {
+    public MainPage checkLinks(final int sizeLinks) {
 
         links.shouldHaveSize(sizeLinks);
 
@@ -34,8 +42,8 @@ public class MainPage {
      *
      * @return the main page
      */
-    public MainPage checkTitleLinks(){
+    public MainPage checkTitleLinks() {
         links.shouldHave(CollectionCondition.texts("Кинотеатры", "Фильмы", "Дома", " "));
-    return this;
+        return this;
     }
 }
