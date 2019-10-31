@@ -34,12 +34,30 @@ public class AvailableTests extends AbstractPage {
     }
 
     @Test
-    @Story("Check cinema page")
+    @Story("Check cinema page.")
     public void testCheckCinema() {
         openPage("/cinema", "Кинотеатры - билеты и расписание сеансов - Киноход");
         new CinemaPage()
                 .checkCinemasTitle(10);
-
     }
 
+    @Test
+    @Story("Check registration on the gift page.")
+    public void testCheckGift() {
+        openPage("", "Киноход - билеты в кино со скидкой 10%. Сервис по покупке и возврату билетов в кино");
+        new MainPage()
+                .checkLinks(4)
+                .clickToTheElement(3)
+                .enterDataForRegistration();
+    }
+
+    @Test
+    @Story("Check subscribe on the gift page.")
+    public void testCheckSubscribe() {
+        openPage("", "Киноход - билеты в кино со скидкой 10%. Сервис по покупке и возврату билетов в кино");
+        new MainPage()
+                .checkLinks(4)
+                .clickToTheElement(3)
+                .checkSubscribeService();
+    }
 }

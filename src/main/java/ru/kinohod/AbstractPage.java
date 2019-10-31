@@ -9,7 +9,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * The type Abstract page.
  */
-public class AbstractPage extends BaseWeb {
+public abstract class AbstractPage extends BaseWeb {
 
     /**
      * The default constructor.

@@ -40,10 +40,21 @@ public class MainPage {
     /**
      * Check title links main page.
      *
-     * @return the main page
+     * @return the main page.
      */
     public MainPage checkTitleLinks() {
         links.shouldHave(CollectionCondition.texts("Кинотеатры", "Фильмы", "Дома", " "));
         return this;
+    }
+
+    /**
+     * Click to the element main page.
+     *
+     * @param element this is number of element from list.
+     * @return the main page.
+     */
+    public GiftPage clickToTheElement(final int element) {
+        links.get(element).click();
+        return new GiftPage();
     }
 }
