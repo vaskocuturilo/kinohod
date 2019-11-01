@@ -4,6 +4,7 @@ import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 import ru.kinohod.pages.CinemaPage;
 import ru.kinohod.pages.MainPage;
+import ru.kinohod.pages.MoviePage;
 import ru.kinohod.pages.SearchPage;
 
 public class AvailableTests extends AbstractPage {
@@ -59,5 +60,13 @@ public class AvailableTests extends AbstractPage {
                 .checkLinks(4)
                 .clickToTheElement(3)
                 .checkSubscribeService();
+    }
+
+    @Test
+    @Story("Check movie page.")
+    public void testCheckMovie() {
+        openPage("/movie", "Киноафиша - новинки кино и расписание фильмов - Киноход");
+        new MoviePage()
+                .buyTicket();
     }
 }
