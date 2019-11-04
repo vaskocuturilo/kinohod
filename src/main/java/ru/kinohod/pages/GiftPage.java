@@ -29,10 +29,10 @@ public class GiftPage {
      */
     private final transient SelenideElement
             registration = $("button[class='profile_unautorized']"),
-            email = $("div[id='register_modal'] div.input_block.email > input"),
-            password = $("div[id='register_modal'] div.input_block.password > input"),
-            repeatPassword = $("div[id='register_modal'] div.input_block.repeat_password > input"),
-            signIn = $("div[id='register_modal'] div.sign_container > form > button"),
+            email = $("div[id='register_modal'] div[class='input_block email'] input"),
+            password = $("div[id='register_modal'] div[class='input_block password'] input"),
+            repeatPassword = $("div[id='register_modal'] div[class='input_block repeat_password'] input"),
+            signIn = $("div[id='register_modal'] div[class='sign_container'] button"),
             subscribeInput = $("div[class='subscribe'] input"),
             subscribeButton = $("div[class='subscribe'] button"),
             subscribeSuccess = $("div[class='subscribeSuccess']");
