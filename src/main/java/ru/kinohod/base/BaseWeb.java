@@ -3,16 +3,18 @@ package ru.kinohod.base;
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
+import ru.kinohod.listener.AllureScreenShooter;
 
 import java.util.logging.Logger;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.WebDriverRunner.*;
 
-
 /**
  * The type Base web.
  */
+@Listeners({AllureScreenShooter.class})
 public class BaseWeb {
 
     /**

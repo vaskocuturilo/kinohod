@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke automation scripts for kinohod.ru">
+    <test name="Smoke tests">
+        <packages>
+            <package name="ru.kinohod.tests.*"/>
+        </packages>
+    </test>
+</suite>

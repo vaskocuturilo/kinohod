@@ -1,7 +1,8 @@
-package ru.kinohod;
+package ru.kinohod.tests;
 
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
+import ru.kinohod.AbstractPage;
 import ru.kinohod.pages.CinemaPage;
 import ru.kinohod.pages.MainPage;
 import ru.kinohod.pages.MoviePage;
