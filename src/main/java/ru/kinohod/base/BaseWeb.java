@@ -1,26 +1,18 @@
 package ru.kinohod.base;
 
-import com.codeborne.selenide.Configuration;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
+import ru.kinohod.environment.Environment;
 import ru.kinohod.listener.AllureScreenShooter;
-
-import java.util.logging.Logger;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.WebDriverRunner.*;
+import static ru.kinohod.browsers.Browsers.selectBrowser;
 
 /**
  * The type Base web.
  */
 @Listeners({AllureScreenShooter.class})
 public class BaseWeb {
-
-    /**
-     * The constant for LOGGING.
-     */
-    private static final Logger LOGGER = Logger.getLogger(BaseWeb.class.getName());
 
     /**
      * The default constructor.
@@ -33,12 +25,19 @@ public class BaseWeb {
 
     /**
      * Start process.
+     *
+     * @param browser this value for which browser use.
      */
+    @Parameters({"browser"})
     @BeforeTest(alwaysRun = true)
-    public void startProcess() {
-        Configuration.browser = "Chrome";
+    public void startProcess(@Optional("chrome") final String browser) {
         baseUrl = "https://kinohod.ru";
-        clearBrowserCache();
+        if (Environment.isCheckOperationSystem()) {
+            selectBrowser("remote");
+        } else {
+            selectBrowser(browser);
+            clearBrowserCache();
+        }
     }
 
     /**
@@ -46,9 +45,6 @@ public class BaseWeb {
      */
     @AfterTest(alwaysRun = true)
     public void stopProcess() {
-        LOGGER.info("");
         closeWebDriver();
-        LOGGER.info("");
-
     }
 }

@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.logging.Logger;
 
 /**
@@ -15,8 +17,10 @@ import java.util.logging.Logger;
 @SuppressWarnings("deprecation")
 public class Chrome implements WebDriverProvider {
 
+    /**
+     * The constant LOGGER.
+     */
     private static final Logger LOGGER = Logger.getLogger(Chrome.class.getName());
-
 
     @Override
     public WebDriver createDriver(DesiredCapabilities capabilities) {
@@ -33,16 +37,26 @@ public class Chrome implements WebDriverProvider {
         return null;
     }
 
-
     /**
      * Method chromeOptions.
-     *
      */
     private ChromeOptions chromeOptions() {
         final ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("disable-infobars");
+
+        chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+        chromeOptions.setExperimentalOption("useAutomationExtension", false);
+
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--disable-extensions");
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
+
+        final HashMap<String, Object> preference = new HashMap<String, Object>();
+        preference.put("credentials_enable_service", false);
+        preference.put("profile.password_manager_enabled", false);
+        chromeOptions.setExperimentalOption("prefs", preference);
 
         return chromeOptions;
     }
-
-
 }
