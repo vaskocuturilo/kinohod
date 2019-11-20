@@ -13,7 +13,6 @@ public final class Browsers {
      * @param browser the browser.
      */
     public static void selectBrowser(final String browser) {
-
         if ("chrome".equalsIgnoreCase(browser)) {
             Configuration.browser = Chrome.class.getName();
         } else if ("remote".equalsIgnoreCase(browser)) {

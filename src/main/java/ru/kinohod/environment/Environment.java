@@ -1,6 +1,8 @@
 package ru.kinohod.environment;
 
 
+import java.util.Locale;
+
 /**
  * The type Environment.
  */
@@ -15,7 +17,7 @@ public class Environment {
      */
     public static boolean isCheckOperationSystem() {
 
-        String systemName = System.getProperty("os.name");
+        String systemName = System.getProperty("os.name").toLowerCase(Locale.ROOT);
         return (systemName.contains("nix") || systemName.contains("nux"));
     }
 }

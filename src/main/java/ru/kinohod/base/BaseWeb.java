@@ -7,6 +7,7 @@ import ru.kinohod.listener.AllureScreenShooter;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.WebDriverRunner.*;
 import static ru.kinohod.browsers.Browsers.selectBrowser;
+import static ru.kinohod.utils.PropertiesReader.loadProperty;
 
 /**
  * The type Base web.
@@ -31,7 +32,7 @@ public class BaseWeb {
     @Parameters({"browser"})
     @BeforeTest(alwaysRun = true)
     public void startProcess(@Optional("chrome") final String browser) {
-        baseUrl = "https://kinohod.ru";
+        baseUrl = loadProperty("WEB_URL");
         if (Environment.isCheckOperationSystem()) {
             selectBrowser("remote");
         } else {

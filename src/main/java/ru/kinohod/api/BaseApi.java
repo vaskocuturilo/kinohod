@@ -28,6 +28,6 @@ public class BaseApi {
      */
     @BeforeTest(alwaysRun = true)
     public void beforeTest() {
-        RestAssured.baseURI = loadProperty("url");
+        RestAssured.baseURI = loadProperty("API_URL");
     }
 }
