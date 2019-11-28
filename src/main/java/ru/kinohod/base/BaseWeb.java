@@ -33,7 +33,7 @@ public class BaseWeb {
     @BeforeTest(alwaysRun = true)
     public void startProcess(@Optional("chrome") final String browser) {
         baseUrl = loadProperty("WEB_URL");
-        if (Environment.isCheckOperationSystem()) {
+        if (Environment.isCheckOperatingSystem()) {
             selectBrowser("remote");
         } else {
             selectBrowser(browser);

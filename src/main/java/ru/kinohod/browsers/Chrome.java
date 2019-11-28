@@ -23,7 +23,7 @@ public class Chrome implements WebDriverProvider {
     private static final Logger LOGGER = Logger.getLogger(Chrome.class.getName());
 
     @Override
-    public WebDriver createDriver(DesiredCapabilities capabilities) {
+    public WebDriver createDriver(final DesiredCapabilities capabilities) {
         WebDriverManager.chromedriver().setup();
 
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions());
@@ -40,7 +40,7 @@ public class Chrome implements WebDriverProvider {
     /**
      * Method chromeOptions.
      */
-    private ChromeOptions chromeOptions() {
+    public static ChromeOptions chromeOptions() {
         final ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("disable-infobars");
 
